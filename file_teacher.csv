@@ -1,0 +1,14 @@
+ID,Name,Email,Password,Sections,Subjects,CourseCodes
+1,Dr. Abdul Karim Kazi,abdulkarimkazi@gmail.com,AbdulCSIT,A,Programming Fundamentals (PF) Theory + Practical,CT-175
+2,Mr. Ahmed Zaki Shaikh,ahmedzakishaikh@gmail.com,AhmedCSIT,A;B;C;D;E;F,IT Fundamentals and Applications (ITFA) Theory + Practical,EF-101
+3,Ms. Amna Alvi,amnaalvi@gmail.com,AmnaCSIT,A;B;C;D;E,Functional English (FE),EA-128
+4,Dr. Ambreen Sikander,ambreensikander@gmail.com,AmbreenCSIT,A;B;C;D;E;F,Ideology and Constitution of Pakistan (ICP),ES-108
+5,Mr. Salah Uddin,salahuddin@gmail.com,SalahCSIT,A;B;C;D;E;F,Islamic Studies (IS),ES-206
+6,Ms. Ayesha Khursheed,ayeshakhursheed@gmail.com,AyeshaCSIT,A;B,Applied Physics (AP),PH-129
+7,Mr. Muhammad Wajhi Uddin,muhammadwajhiuddin@gmail.com,MuhammadCSIT,B,Programming Fundamentals (PF) Theory + Practical,CT-175
+8,Ms. Shiza Hassan,shizahassan@gmail.com,ShizaCSIT,C;D,Programming Fundamentals (PF) Theory + Practical,CT-175
+9,Ms. Shazia Danish,shaziadanish@gmail.com,ShaziaCSIT,C;D,Applied Physics (AP),PH-129
+10,Ms. Maham Muhammad Ashraf,mahammuhammadashraf@gmail.com,MahamCSIT,E;F,Programming Fundamentals (PF) Theory + Practical,CT-175
+11,Ms. Sukaina Saeed,sukainasaeed@gmail.com,SukainaCSIT,E,Functional English (FE),EA-128
+12,Ms. Aania Imam,aaniaimam@gmail.com,AaniaCSIT,E;F,Applied Physics (AP),PH-129
+13,Mr. Ahmed Hussain Khan,ahmedhussainkhan@gmail.com,AhmedCSIT,F,Functional English (FE),EA-128
