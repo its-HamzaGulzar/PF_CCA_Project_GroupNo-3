@@ -1,142 +1,78 @@
-# University Student Management System
+# University Student Management System (CT-175 CCA Project)
 
-A console-based University Student Management System written in **C**.
-It supports three roles (Admin, Teacher and Student) and stores all records in CSV files so data is kept between runs.
+A console-based student management system written in C. It has three roles: **Admin**, **Teacher** and **Student**. It manages student and teacher accounts, attendance, marks, weighted CGPA, scholarship eligibility, timetables, sorting, searching and class reports. All data is stored in CSV files.
 
-**Course:** Programming Fundamentals (CT-175) – Complex Computing Activity (CCA)
-**Instructor:** Ms. Maham Ashraf
-**Semester:** Fall 2026
+## Group Members
 
-## Group Members (Group No. 3, Section E)
-
-| S. No. | Name | Roll Number |
-|--------|------|-------------|
-| 1 | Syed Humayun Ali | CT-26242 |
-| 2 | Muhammad Hamza Gulzar | CT-26238 |
-| 3 | Muhammad Zain ul Abidin | CT-26227 |
-| 4 | Uzair Asim Hassan | CT-26228 |
+| S. No. | Name | Roll Number | Section |
+|---|---|---|---|
+| 1 | Syed Humayun Ali | CT-26242 | E |
+| 2 | Muhammad Hamza Gulzar | CT-26238 | E |
+| 3 | Muhammad Zain ul Abidin | CT-26227 | E |
+| 4 | Uzair Asim Hassan | CT-26228 | E |
 
 ## Features
 
-- **Login and roles:** Admin, Teacher and Student log in with email and password. The first run creates the admin account.
-- **Student registration:** Unique roll number (CT-26xxx format) and unique Gmail address, with confirmation.
-- **Account management:** Add, update and remove students and teachers. Change password with an old-password check.
-- **Teacher access:** Teachers see and change only their own course and sections.
-- **Attendance:** Mark each student P or A per session. The percentage is calculated automatically.
-- **Marks entry:** Assignments (10), Quizzes (10), Midterm (20) and Final (60), for one student or a whole section. Marks above the maximum are rejected.
-- **GPA and CGPA:** Grade points weighted by credit hours across six subjects.
-- **Scholarship check:** Eligible if CGPA is above 3.70 and attendance is above 80%.
-- **Timetable:** Weekly timetable for each section.
-- **Sort and rank:** By CGPA, roll number, name or attendance. Equal CGPA shares a rank.
-- **Search:** By roll number (recursive binary search) or by part of a name.
-- **Reports:** Subject statistics (average, highest, lowest, standard deviation) and pass/fail with academic probation (CGPA below 2.00).
-- **Input validation** on every menu and field.
-- **File save and load:** All records are saved to CSV on every change and at exit.
-
-## How to Compile and Run
-
-Requires a C compiler such as GCC (the program uses a Windows-only password input, so build it on Windows).
-
-```bash
-gcc main.c -o project
-./project
-```
-
-On Windows PowerShell, run `.\project.exe` instead.
-Keep the three CSV files in the same folder as the program. If the admin file is missing, the program asks you to create the first admin account.
-
-## Sample Input and Output
-
-**1. Main menu and invalid input**
-
-```
-=== Student Management System ===
-1. Admin
-2. Teacher
-3. Student
-0. Exit
-Choose login type: 9
-Enter a whole number from 0 to 3.
-Choose login type:
-```
-
-**2. Admin login**
-
-```
-Choose login type: 1
-
-=== Login ===
-Email: admin@example.com
-Password: *********
-Welcome, Admin One!
-
-=== Admin: manage accounts ===
-1. Add student
-2. Remove student or teacher
-3. Add teacher
-4. Update account
-5. Change password
-6. Reports and search
-0. Log out
-Choose:
-```
-
-**3. Duplicate roll number rejected**
-
-```
-Choose: 1
-Student roll number (for example CT-26001): CT-26001
-That roll number already exists.
-Student roll number (for example CT-26001):
-```
-
-**4. Student scholarship check**
-
-```
-=== Student Dashboard ===
-Welcome SYEDA KASHAF FATIMA JAFFRI | Section A
-1. View attendance
-2. View marks
-3. View timetable
-4. Check scholarship eligibility
-5. Change password
-0. Log out
-Choose: 4
-CGPA: 3.52
-Attendance: 81.2%
-Not currently eligible. Requirements: CGPA above 3.70 and attendance above 80%.
-```
-
-## PF Concepts Used
-
-| Concept | Where it is used |
-|---------|------------------|
-| Variables and data types | Marks (double), counts (int), IDs, CGPA |
-| Conditional statements (if / switch) | Grade points, scholarship rule, validation, role menus |
-| Loops | Menus (do-while), file reading, sorting, section traversal |
-| Functions | About 85 functions, one task each (`save_students`, `cgpa`, `find_id`, ...) |
-| Arrays and strings | `teachers[100]`, `marks[6]`, `timetable[6][5]`, `fgets`, `strcmp`, `strstr` |
-| Structures | `Student` and `Account` structs |
-| Pointers and dynamic memory | `Student *students` with `malloc`/`realloc`/`free`, pointer parameters, pointer arrays for sorting |
-| Recursion | `find_id` (binary search), `sum_marks` (recursive sum) |
-| Sorting and searching | Bubble sort by four keys, linear search by ID, recursive binary search |
-| File handling | Read and write `file_student.csv`, `file_teacher.csv`, `file_admin.csv` |
+- **Admin:** add, remove and update students and teachers; sort students (CGPA, roll number, name, attendance); search by roll number or name; subject statistics; pass/fail and academic probation report; change password.
+- **Teacher:** record attendance and marks for their own course and sections; view section records; change password.
+- **Student:** view attendance, marks, CGPA, timetable and scholarship eligibility; change password.
 
 ## Folder Structure
 
 ```
-PF_CCA_Project_GroupNo-3/
-├── main.c               # Source code
-├── file_admin.csv       # Admin accounts
-├── file_teacher.csv     # Teacher accounts
-├── file_student.csv     # Student records
-├── Project_Report.pdf   # Full project report
-├── Flowchart.pdf        # Main program flowchart
-├── screenshots/         # Program screenshots
+Project_PF/
+├── Source_Code/
+│   ├── main.c              program source
+│   ├── file_admin.csv      admin account (data)
+│   ├── file_teacher.csv    teacher accounts (data)
+│   ├── file_student.csv    student records, attendance, marks (data)
+│   └── .vscode/tasks.json  VS Code build settings
+├── Screenshots/            screenshots of the working program
+├── Flowchart.pdf
+├── Project_Report.pdf
 └── README.md
 ```
 
-## Limitations and Future Work
+## How to Compile and Run (Windows, GCC / MSYS2 UCRT64)
 
-- Passwords are stored as plain text. A future version should store hashes.
-- Password input uses a Windows-only function. A portable version is planned.
+From the `Project_PF` folder:
+
+```bash
+gcc Source_Code/main.c -o Source_Code/project.exe -lm
+cd Source_Code
+project.exe
+```
+
+The program must be run from the `Source_Code` folder, because it reads and writes the CSV files in the current folder. Use a Windows machine: the program uses `<conio.h>` for hidden password input.
+
+## Sample Logins
+
+| Role | Email | Password |
+|---|---|---|
+| Admin | admin@example.com | adminpass |
+| Teacher | abdulkarimkazi@gmail.com | AbdulCSIT |
+| Student | nehalashfaque@gmail.com | CT-002CSIT |
+
+## PF Concepts Used
+
+- Variables, data types and operators (marks, CGPA weighting, attendance percentage)
+- Input and output with formatted tables
+- `if / else` and nested conditions (grade points, validation, scholarship rule)
+- `switch` (menus, role selection, subject selection)
+- Loops (menus with `do-while`, file reading, sorting, section traversal)
+- 1D arrays (marks, credit hours, teachers, students)
+- 2D arrays (timetable, assessments per subject)
+- Strings (`fgets`, `strcmp`, `strstr`, case-insensitive name search)
+- Functions (about 85, each with one task, with parameters and return values)
+- Pointers (update functions, sorting arrays of pointers, dynamic memory)
+- Recursion (binary search by roll number, recursive sum of marks)
+- Structures (`Student`, `Account`)
+- Sorting (bubble sort) and searching (linear and recursive binary search)
+- File handling (save and load CSV)
+- Dynamic memory (`malloc`, `realloc`, `free`)
+- Error handling (invalid input, duplicate IDs and emails, failed saves)
+
+## Notes
+
+- Passwords are stored as plain text in the CSV files. This is acceptable for a course project but is not secure.
+- Marks not yet entered are stored as blank and shown as "Not entered yet". They are not counted as zero.
